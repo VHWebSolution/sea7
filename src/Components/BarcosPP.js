@@ -14,9 +14,9 @@ const BarcosPP = () => {
   const fetchItems = async () => {
     try {
       const response = await axios.get('http://localhost:8080/buscar');
-      const sortedItems = response.data.sort((a, b) => b.id - a.id);
-      const last5Items = sortedItems.slice(0, 4);
-      setBarcos(last5Items);
+      const sortedItems = response.data.sort((a, b) => b.quantidadeProduto - a.quantidadeProduto);
+      const topItems = sortedItems.slice(0, 4);
+      setBarcos(topItems);
     } catch (error) {
       console.error('Erro ao buscar produtos:', error);
     }
@@ -50,9 +50,9 @@ const BarcosPP = () => {
             <p className='text-[14px]'>{barco.descricaoCurta}</p>
           </div>
           <div className='h-[1px] w-full bg-gray-500'></div>
-          <div className='flex justify-between mt-4'>
+          <div className='flex justify-between mt-4 items-center'>
             <h1>R$ {barco.precoProduto.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</h1>
-            <button  onClick={() => navigate(`/seminovos/${barco.id}`)} className='bg-s7green text-white w-[80px] h-[25px] rounded-[5px]'>
+            <button  onClick={() => navigate(`/seminovos/${barco.id}`)} className='bg-s7green text-white w-[80px] h-[35px] rounded-[5px]'>
               Ver mais
             </button>
           </div>
