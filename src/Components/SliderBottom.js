@@ -13,7 +13,7 @@ const SliderBottom = () => {
   return (
     <div style={containerStyle}>
       <div className='flex justify-center items-center bg-s7greend/[.5] w-[725px] h-full'>
-        <button className='bg-s7green text-white h-[65px] w-80 border border-white'>
+        <button onClick="/seminovos" className='bg-s7green text-white h-[65px] w-80 border border-white'>
           Veja todos os barcos disponíveis
         </button>
       </div>
