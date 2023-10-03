@@ -148,7 +148,7 @@ const ProductDetail = () => {
 
   const fetchProduct = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/buscarPorId/${productId}`);
+      const response = await axios.get(`https://www.sea7api.com.br/buscarPorId/${productId}`);
       setProduct(response.data);
       setMensagem((prevState) => ({
         ...prevState,
@@ -161,7 +161,7 @@ const ProductDetail = () => {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/grupoImagens/${productId}`);
+      const response = await axios.get(`https://www.sea7api.com.br/grupoImagens/${productId}`);
       setImagemP(response.data);
     } catch (error) {
       console.error('Erro ao buscar imagem:', error);
@@ -170,7 +170,7 @@ const ProductDetail = () => {
 
   const fetchMensagem = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/mensagem/salvar', mensagem);
+      const response = await axios.post('https://www.sea7api.com.br/mensagem/salvar', mensagem);
 
       if (response.status === 200) {
         console.log('Mensagem enviada com sucesso:', response.data);
