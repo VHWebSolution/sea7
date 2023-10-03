@@ -14,7 +14,7 @@ export const ContatoPage = () => {
   
     const fetchMensagem = async () => {
       try {
-        const response = await axios.post('http://localhost:8080/mensagem/salvar', mensagem);
+        const response = await axios.post('https://www.sea7api.com.br/mensagem/salvar', mensagem);
 
         setMensagem((prevState) => ({
             ...prevState,

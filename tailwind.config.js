@@ -7,6 +7,9 @@ module.exports = {
         's7green': '#188B8B',
         's7greend': '#083838',
       },
+      screens: {
+        'ss': '990px',
+      }
     },
   },
   plugins: [],

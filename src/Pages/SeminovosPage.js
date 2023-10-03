@@ -13,7 +13,7 @@ export const Seminovos = () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/buscar');
+      const response = await axios.get('https://www.sea7api.com.br/buscar');
       const sortedItems = response.data.sort((a, b) => b.quantidadeProduto - a.quantidadeProduto);
       const topItems = sortedItems.slice(0, 22);
       setBarcos(topItems);
