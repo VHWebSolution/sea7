@@ -186,49 +186,47 @@ const ProductDetail = () => {
     return <div>Carregando...</div>;
   }
 
-  return(
-  <>
+  return (
+    <>
       <div className='flex justify-center mt-24 px-4'>
         <div className='flex flex-col w-[1200px] my-12 gap-10 sm:flex-row sm:gap-10'>
 
           {/* Parte esquerda (imagens) */}
           <div className='flex-col'>
-      {imagemP && imagemP.length > 0 ? (
-        <img
-          className='object-cover object-center w-[422px] h-[400px] rounded-[10px]'
-          src={`data:${imagemP[selectedImageIndex].type};base64,${imagemP[selectedImageIndex].base64Image}`}
-          alt={`Secondary Preview ${selectedImageIndex}`}
-          onClick={openAllImagesModal}
-        />
-      ) : (
-        <div>No images available</div>
-      )}
+            {imagemP && imagemP.length > 0 ? (
+              <img
+                className='object-cover object-center w-[422px] h-[400px] rounded-[10px]'
+                src={`data:${imagemP[selectedImageIndex].type};base64,${imagemP[selectedImageIndex].base64Image}`}
+                alt={`Secondary Preview ${selectedImageIndex}`}
+                onClick={openAllImagesModal}
+              />
+            ) : (
+              <BeatLoader className='my-[60rem]' color="#188B8B" />
+            )}
 
-      <div
-        className='imgs-container mt-2 flex space-x-2 max-w-[420px] overflow-hidden cursor-grab'
-        ref={containerRef}
-        onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
-        onMouseMove={handleMouseMove}
-      >
-        {imagemP && imagemP.length > 0 ? (
-          imagemP.map((image, index) => (
-            <img
-              key={index}
-              src={`data:${image.type};base64,${image.base64Image}`}
-              alt={`Secondary Preview ${index}`}
-              className={`w-[100px] h-[120px] object-cover object-center ${
-                index === selectedImageIndex ? 'border-2 border-s7green' : ''
-              }`}
-              onClick={() => openModal(index)}
-              draggable="false"
-            />
-          ))
-        ) : (
-          <div>No images available</div>
-        )}
-      </div>
-            
+            <div
+              className='imgs-container mt-2 flex space-x-2 max-w-[420px] overflow-hidden cursor-grab'
+              ref={containerRef}
+              onMouseDown={handleMouseDown}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+            >
+              {imagemP && imagemP.length > 0 ? (
+                imagemP.map((image, index) => (
+                  <img
+                    key={index}
+                    src={`data:${image.type};base64,${image.base64Image}`}
+                    alt={`Secondary Preview ${index}`}
+                    className={`w-[100px] h-[120px] object-cover object-center ${index === selectedImageIndex ? 'border-2 border-s7green' : ''}`}
+                    onClick={() => openModal(index)}
+                    draggable="false"
+                  />
+                ))
+              ) : (
+                <BeatLoader color="#188B8B" />
+              )}
+            </div>
+
             {/* Botões de navegação do carrossel */}
             <div className='flex justify-between mt-2'>
               <button onClick={scrollPrev}>
@@ -254,7 +252,7 @@ const ProductDetail = () => {
             <p className='mt-5 text-justify'>
               {product.descricaoCompleta.split('\n').map((line, index) => (
                 <React.Fragment key={index}>
-                  {line.trim()} 
+                  {line.trim()}
                   <br />
                 </React.Fragment>
               ))}
